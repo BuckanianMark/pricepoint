@@ -1,0 +1,11 @@
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\bin\Debug\net7.0\Core.deps.json
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\bin\Debug\net7.0\Core.dll
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\bin\Debug\net7.0\Core.pdb
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.AssemblyInfoInputs.cache
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.AssemblyInfo.cs
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.dll
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\refint\Core.dll
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.pdb
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\ref\Core.dll
