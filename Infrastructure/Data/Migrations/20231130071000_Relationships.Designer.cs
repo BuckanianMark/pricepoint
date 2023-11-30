@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20231118193140_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231130071000_Relationships")]
+    partial class Relationships
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,8 +33,6 @@ namespace Infrastructure.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(10000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Latest")
@@ -50,9 +48,7 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductTypeId")
                         .HasColumnType("int");
@@ -90,13 +86,15 @@ namespace Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Spec")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SpecType")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductSpecs");
                 });
@@ -115,21 +113,6 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductTypes");
-                });
-
-            modelBuilder.Entity("Core.Entities.Specs", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "SpecId");
-
-                    b.HasIndex("SpecId");
-
-                    b.ToTable("Specs");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>
@@ -151,7 +134,7 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("ProductType");
                 });
 
-            modelBuilder.Entity("Core.Entities.Specs", b =>
+            modelBuilder.Entity("Core.Entities.ProductSpecs", b =>
                 {
                     b.HasOne("Core.Entities.Product", "Product")
                         .WithMany("Specs")
@@ -159,23 +142,10 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.ProductSpecs", "ProductSpecs")
-                        .WithMany("Specs")
-                        .HasForeignKey("SpecId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Product");
-
-                    b.Navigation("ProductSpecs");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>
-                {
-                    b.Navigation("Specs");
-                });
-
-            modelBuilder.Entity("Core.Entities.ProductSpecs", b =>
                 {
                     b.Navigation("Specs");
                 });

@@ -1,18 +1,21 @@
 
-using System.Data.Common;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
+
+
 namespace Infrastructure.Data
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository 
     {
         private readonly StoreContext _context;
+       
   
         public ProductRepository(StoreContext context)
         {
             _context = context;
+            
          
         }
 
@@ -21,19 +24,24 @@ namespace Infrastructure.Data
         public async Task<Product?> GetProductByIdAsync(int id)
         {
             return await _context.Products
-             .Include(s => s.ProductBrand)
+            .Include(s => s.ProductBrand)
             .Include(p => p.ProductType)
-            .Include(p => p.Specs)
             .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IReadOnlyList<Product?>> GetProductsAsync()
         {
-            return await _context.Products
+          
+            var products = await _context.Products
             .Include(s => s.ProductBrand)
             .Include(p => p.ProductType)
-            .Include(p => p.Specs)
             .ToListAsync();
+
+
+           
+
+            return products;
+      
         }
          public async Task<IReadOnlyList<ProductBrand?>> GetProductBrandsAsync()
     {

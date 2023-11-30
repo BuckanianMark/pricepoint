@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class ProductSpecs : BaseEntity
     {
-        public string? SpecType { get; set; }
         public string? Spec { get; set; }
-        public List<Specs>? Specs { get; set; }
+        public int  ProductId { get; set; }
+        [ForeignKey("ProductId")]
+        public Product? Product { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -16,9 +17,9 @@ builder.Services.AddDbContext<StoreContext>(options => {
         options.UseSqlServer(builder.Configuration.GetConnectionString("PricepointMainDb"));
 });
 
-
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
-
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope()){
