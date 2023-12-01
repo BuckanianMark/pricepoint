@@ -34,17 +34,17 @@ namespace API.Controllers
 
         }
 
-        // [HttpGet]
-        // public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
-        // {
-        //     var spec = new ProductsWithTypesBrandsAndSpecsSpecification();
+        [HttpGet]
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
+        {
+            var spec = new ProductsWithTypesBrandsAndSpecsSpecification();
             
-        //     var products = await _productsRepo.ListAsync(spec);
+            var products = await _productsRepo.ListAsync(spec);
             
-        //     //return _mapper.Map<Product , ProductToReturnDto>(products);
+            return Ok(_mapper.Map<IReadOnlyList<Product> , IReadOnlyList<ProductToReturnDto>>(products));
             
             
-        // }
+        }
 
         [HttpGet]
         [Route("{id}")]

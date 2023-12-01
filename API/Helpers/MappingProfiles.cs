@@ -7,9 +7,13 @@ namespace API.Helpers
 {
     public class MappingProfiles : Profile
     {
-        protected MappingProfiles()
+        public MappingProfiles()
         {
-            CreateMap<Product, ProductToReturnDto>();
+            CreateMap<Product, ProductToReturnDto>()
+                .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))
+                .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>())
+                .ForMember(d => d.ProductSpecs, o => o.MapFrom(s => s.ProductSpecs.Select(v => v.Spec)));
         }
     }
 }
