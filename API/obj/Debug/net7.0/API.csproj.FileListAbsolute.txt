@@ -80,3 +80,4 @@ C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\In
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\Core.pdb
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\API.staticwebassets.runtime.json

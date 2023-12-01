@@ -1,11 +1,105 @@
 {
   "Version": 1,
-  "Hash": "bUm1vPqwZHJejLhtNIB7WgmMI8ngxypkYrDApg4MvgQ=",
+  "Hash": "oiRjyN6u2I0l3r3ROdYl8Na8TMvyNF8jkjQhSPsivdc=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "API\\wwwroot",
+      "Source": "API",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\images\\products\\galaxym54.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/products/galaxym54.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\galaxym54.png"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\images\\products\\keyboardslimpen.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/products/keyboardslimpen.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\keyboardslimpen.png"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\images\\products\\playstation5.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/products/playstation5.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\playstation5.png"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\images\\products\\realmec55.jpg",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/products/realmec55.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\realmec55.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\images\\products\\sonywf1000.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\WebProjects\\AngularCsharp\\pricepoint\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/products/sonywf1000.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\sonywf1000.png"
+    }
+  ]
 }
