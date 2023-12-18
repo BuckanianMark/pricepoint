@@ -10,7 +10,8 @@ module.exports = {
         light:'#222',
         secondary:'#676b75',
         brightorange:'#f0651a',
-
+        darkblue:"#51388a",
+        blue:"#14063b"
       }
     },
   },

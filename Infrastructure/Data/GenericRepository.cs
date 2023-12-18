@@ -3,6 +3,7 @@ using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace Infrastructure.Data
 {
@@ -29,6 +30,8 @@ namespace Infrastructure.Data
         {
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
+
+    
 
 
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)

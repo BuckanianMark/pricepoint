@@ -1,0 +1,76 @@
+<div class="shop-container ">
+  <div class="shop-row ">
+    <section class="col-one ml-[20px] lg:ml-[50px] text-primary text-[18px]">
+    <h5 class="font-[600]">Sort</h5>
+    <select class="outline-none custom-shadow-1 border-2 rounded-md shadow- mt-[6px] px-[10px] border-[whitesmoke]">
+      <option value="">Price:Low to High</option>
+      <option value="">Price:High to Low</option>
+    </select>
+    </section>
+    <section class="col-two">
+      <div class="newest-products">
+        <h1 class="text-center text-blue font-[200] my-[15px] text-3xl"> Our Newest Heroes 🦸</h1>
+
+       <ul class="flex items-center justify-center flex-wrap mx-[30px]  " >
+        
+        <li *ngFor="let product of latestProducts " class="relative border-2 bg-[whitesmoke]" >
+       
+            <app-product-item [product]="product" ></app-product-item>
+         
+   
+       </li>
+       
+       </ul>
+       
+      </div>
+    </section>
+  </div>
+</div>
+
+<ul id="filters"   class="flex gap-[20px] flex-wrap items-center justify-center mt-[20px] text-gray-800">
+  <div id="filter" >
+  <span id="customspan">
+    <img src="../../../assets/headphoneicon.png" alt=""></span>
+    <span>Audio</span>
+  </div>
+  <div id="filter" >
+    <span id="customspan">
+    <img src="../../../assets/computericon.png"></span>
+    <span>Computing</span>
+  </div>
+  <div id="filter">
+    <span id="customspan">
+    <img src="../../../assets/gameicon.png" ></span>
+    <span>Gaming</span>
+  </div>
+  <div id="filter">
+    <span id="customspan">
+    <img src="../../../assets/phoneicon.png"></span>
+    <span>Phones & Tablets</span>
+  </div>
+  <div id="filter">
+    <span id="customspan">
+    <img src="../../../assets/tvicon.png"></span>
+    <span>Television</span>
+  </div>
+</ul>
+<div id="all-products">
+  <ul  class="flex flex-wrap justify-center items-center gap-[20px] mt-[20px]">
+    <li
+    *ngFor="let brand of brands" 
+     [class.active]="brand.id === this.brandIdSelected"
+     [value]="brand.id"
+     (click)="onBrandSelected(brand.id)"
+     class="bg-darkblue cursor-pointer text-[17px] text-blue rounded-lg py-1 px-2">{{brand.name}}</li>
+  </ul>
+</div>
+<div>
+  <h1 class="text-center  text-blue font-[200] my-[15px] text-3xl">Our Products</h1>
+  
+  <app-search></app-search>
+<ul class="flex items-center justify-center flex-wrap mx-[30px]  mt-[40px]">
+  <li *ngFor="let product of products"  class="relative border-2 bg-[whitesmoke]">
+    <app-product-item [product]="product" ></app-product-item>
+  </li>
+</ul>
+</div>
