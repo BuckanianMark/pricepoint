@@ -1,0 +1,35 @@
+<div>
+<div *ngIf="product" class=" flex md:px-[50px] flex-col sm:flex-row justify-evenly md:gap-[50px] mx-auto items-start mt-[50px] w-full">
+    <div class="w-[50%] bg-sensualLight1 py-[50px] px-[20px] rounded-md" >
+        <img src="{{product.pictureUrl}}" alt="product.name">
+    </div>
+    <div class="w-[50%] flex items-center flex-col justify-center text-sensualdark3 text-[19px] ">
+        <h1 class="font-semibold text-[22px] capitalize text-blue">{{product.productName}}</h1>
+        <p class="text-[15px]"> {{product.description}} </p>
+        <span class="flex items-center flex-col justify-center mt-8 gap-3">
+            <p class="uppercase ">Quantity</p>
+            <span class="flex items-center justify-center gap-2">
+                <i class="fa fa-minus-circle text-sensualdark2 fa-2x"></i>
+                <p class="bg-sensualLight1 px-8 rounded-2xl font-bold shadow ">1</p>
+                <i class="fa fa-plus-circle fa-2x text-green-500"></i>
+            </span>
+        </span>
+        <button class="mt-6 bg-green-500 font-bold text-sensualLight1 border-2 duration-150 hover:border-green-500 hover:bg-sensualLight1 hover:text-green-400 px-4 py-2 rounded-xl">Add to cart </button>
+    </div>
+</div>
+<div class="mt-16 flex items-start flex-col  md:px-[50px] px-[30px]">
+    <span class="flex items-center gap-5 justify-start ">
+    <p class="bg-sensualMedium text-sensualdark3  px-8 py-1 font-semibold rounded-md "> {{product.productBrand}} </p>
+    <p class="bg-gray-700 px-8 py-1 font-semibold rounded-md "> {{product.productType}} </p>
+</span>
+<ul>
+    <h1 class="font-bold border-b-2 mt-4 mb-2 border-sensualdark3 text-sensualdark3">Specifications</h1>
+    <li *ngFor="let spec of product?.productSpecs" class="text-sensualdark3">
+        {{spec}}
+        <i class="fa-solid fa-check font-semibold text-sensualdark2"></i>
+        
+    </li>
+</ul>
+</div>
+</div>
+

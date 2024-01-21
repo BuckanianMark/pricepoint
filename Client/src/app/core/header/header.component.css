@@ -85,3 +85,11 @@ nav{
     display: block;
 }
 }
+a.active
+{
+    border-bottom: 3px solid #ebc1b4;
+    padding-bottom:1px;
+    color: #14063b;
+    font-weight: 700;
+}
+

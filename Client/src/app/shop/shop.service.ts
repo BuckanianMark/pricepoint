@@ -41,6 +41,10 @@ export class ShopService {
         })
       )
   }
+  getProduct(id:number)
+  {
+    return this.http.get<IProduct>(this.baseUrl + 'Products/' + id)
+  }
 
   getAudioProducts(){
     return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId=1')
