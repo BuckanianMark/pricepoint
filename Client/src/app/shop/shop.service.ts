@@ -47,7 +47,7 @@ export class ShopService {
   }
 
   getAudioProducts(){
-    return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId=1')
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId='+1)
   }
 
   getForLatestProducts(){

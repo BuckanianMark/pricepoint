@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AudioPageComponent } from './audio-page/audio-page.component';
 
 const routes:Routes = [
   {path:"",component:ShopComponent},
+  {path:"type/audio-products",component:AudioPageComponent},
   {path:":id",component:ProductDetailsComponent},
 ]
 

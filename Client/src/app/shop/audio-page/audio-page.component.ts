@@ -12,12 +12,11 @@ export class AudioPageComponent implements OnInit{
   constructor(private shopService:ShopService){
   }
   ngOnInit(): void {
-    this.getAudoProducts();
+    this.getAudioProducts();
   }
   
-  getAudoProducts(){
+  getAudioProducts(){
     this.shopService.getAudioProducts().subscribe(res => {
-      console.log(res);
       this.products = res
     })
   }
