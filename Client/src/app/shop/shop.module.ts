@@ -6,11 +6,15 @@ import { SearchComponent } from '../partials/search/search.component';
 import { AudioPageComponent } from './audio-page/audio-page.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopRoutingModule } from './shop-routing.module';
+import { ComputingProductsComponent } from './computing-products/computing-products.component';
+import { GamingProductsComponent } from './gaming-products/gaming-products.component';
+import { PhoneProductsComponent } from './phone-products/phone-products.component';
+import { TelevisionProductsComponent } from './television-products/television-products.component';
 
 
 
 @NgModule({
-  declarations: [ShopComponent,ProductItemComponent,SearchComponent,AudioPageComponent,ProductDetailsComponent],
+  declarations: [ShopComponent,ProductItemComponent,SearchComponent,AudioPageComponent,ProductDetailsComponent,ComputingProductsComponent,GamingProductsComponent,PhoneProductsComponent,TelevisionProductsComponent],
   imports: [
     CommonModule,
     ShopRoutingModule

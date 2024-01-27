@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,7 @@ import { gsap } from 'gsap';
 export class AppComponent implements OnInit{
   @ViewChild("header-container",{static:true})
   container!:ElementRef<HTMLDivElement>;
+
 
  
  

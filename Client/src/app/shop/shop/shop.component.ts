@@ -12,7 +12,7 @@ import { ShopParams } from 'src/app/shared/models/ShopParams';
   styleUrl: './shop.component.css'
 })
 export class ShopComponent implements OnInit{
-  @ViewChild('search',{static:true}) searchTerm!:ElementRef;
+  @ViewChild('search',{static:false}) searchTerm!:ElementRef;
 
   products:IProduct[] | any;
   productsForlatest:IProduct[] | any;

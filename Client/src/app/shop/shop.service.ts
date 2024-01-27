@@ -49,6 +49,18 @@ export class ShopService {
   getAudioProducts(){
     return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId='+1)
   }
+  getComputingProducts(){
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId='+2)
+  }
+  getGamingProducts(){
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId='+3)
+  }
+  getPhoneProducts(){
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId='+4)
+  }
+  getTelevisionProducts(){
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products?typeId='+5)
+  }
 
   getForLatestProducts(){
     return this.http.get<IProduct[]>(this.baseUrl + 'products?pageSize=5')

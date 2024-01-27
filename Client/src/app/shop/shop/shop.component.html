@@ -1,5 +1,6 @@
 <div class="shop-container ">
   <div class="shop-row ">
+    
     <section class="col-one ml-[20px] lg:ml-[50px] text-primary text-[18px]">
     <h5 class="font-[600]">Sort</h5>
     <select  
@@ -10,6 +11,7 @@
       </option>
     </select>
     </section>
+    <ng-container *ngIf="latestProducts">
     <section class="col-two">
       <div class="newest-products">
         <h1 class="text-center text-blue font-[200] my-[15px] text-3xl"> Our Newest Heroes 🦸</h1>
@@ -27,6 +29,7 @@
        
       </div>
     </section>
+  </ng-container>
   </div>
 </div>
 
@@ -45,17 +48,27 @@
   <div id="filter" >
 
     <span id="customspan">
-    <img src="../../../assets/computericon.png"></span>
+      <a routerLink="/shop/type/computing-products">
+    <img src="../../../assets/computericon.png">
+  </a>
+</span>
     <span>Computing</span>
   </div>
+
   <div id="filter">
     <span id="customspan">
-    <img src="../../../assets/gameicon.png" ></span>
+      <a routerLink="/shop/type/gaming-products" >
+    <img src="../../../assets/gameicon.png" >
+  </a>
+  </span>
     <span>Gaming</span>
   </div>
   <div id="filter">
     <span id="customspan">
-    <img src="../../../assets/phoneicon.png"></span>
+      <a routerLink="/shop/type/phones&tablets">
+    <img src="../../../assets/phoneicon.png">
+  </a>
+  </span>
     <span>Phones & Tablets</span>
   </div>
   <div id="filter">
@@ -82,7 +95,7 @@
   <h1 class="text-center  text-blue font-[200] my-[15px] text-3xl">Our Products</h1>
   
   <!-- <app-search></app-search> -->
-  <div>
+  <div *ngIf="products">
     <div id="search-container" class=" flex items-center justify-center mt-[20px] gap-[10px] relative">
       <input 
       #search

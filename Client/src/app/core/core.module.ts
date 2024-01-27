@@ -4,16 +4,19 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { TestErrorComponent } from './test-error/test-error.component';
+import { SectionHeaderComponent } from './section-header/section-header.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent,TestErrorComponent],
+  declarations: [HeaderComponent,TestErrorComponent,SectionHeaderComponent],
   imports: [
     CommonModule,
     RouterModule,
+    BreadcrumbModule
   
   ],
-  exports:[HeaderComponent,TestErrorComponent]
+  exports:[HeaderComponent,TestErrorComponent,SectionHeaderComponent]
 })
 export class CoreModule { }
