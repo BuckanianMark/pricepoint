@@ -15,11 +15,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { Loadinginterceptor } from './core/interceptors/loading.interceptors';
+import { FooterComponent } from './partials/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,FooterComponent
   ],
   imports: [
     BrowserModule,

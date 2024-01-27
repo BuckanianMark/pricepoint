@@ -3,6 +3,7 @@ using API.Middleware;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,10 +18,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StoreContext>(options => {
         options.UseSqlServer(builder.Configuration.GetConnectionString("PricepointMainDb"));
 });
+builder.Services.AddSingleton<IConnectionMultiplexer>(c => {
+    var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"),true);
+    return ConnectionMultiplexer.Connect(configuration);
+});
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IBasketRepository,BasketRepository>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope()){
