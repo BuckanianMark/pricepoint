@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { BasketService } from './basket/basket.service';
 
 
 @Component({
@@ -14,9 +15,16 @@ export class AppComponent implements OnInit{
  
  
   title = 'Client';
-  constructor(){}
+  constructor(private basketService:BasketService){}
   ngOnInit(): void {
- 
+ const basketId = localStorage.getItem('basket_id');
+ if(basketId) {
+  this.basketService.getBasket(basketId).subscribe(() => {
+    console.log('initialised Basket')
+  },err =>{
+    console.log(err)
+  })
+ }
    
   }
   initAnimations()

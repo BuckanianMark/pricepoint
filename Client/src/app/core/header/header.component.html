@@ -44,7 +44,11 @@
         <li><a href="#">Audio</a></li>
         <li><a >Computing</a></li>
         <li><a routerLink="/test-error" routerLinkActive="active" >Errors</a></li>
-        <li><i class="fa fa-shopping-basket bg-secondary p-[5px] rounded-full text-light"></i></li>
+        <li class=""><a routerLink="/basket">
+            <i class="fa fa-shopping-basket bg-sensualMedium p-[5px]  rounded-full text-darkblue"></i>
+            <div *ngIf="(basket$ | async) as basket" class="bg-blue text-sensualLight1 font-semibold absolute top-0 w-[25px] flex items-center justify-center h-[25px] p-2 rounded-full">{{basket.items.length}}</div>
+            </a>
+        </li>
         <li><button class="login">login</button></li>
     </ul>
 </div>
