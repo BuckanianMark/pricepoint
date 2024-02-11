@@ -90,6 +90,7 @@ export class BasketService implements OnInit{
       if(basket.items.length > 0){
         this.setBasket(basket)
       }else{
+        console.log("Method 2 called")
         this.deleteBasket(basket);
       }
     }
@@ -102,12 +103,14 @@ export class BasketService implements OnInit{
     this.basketTotalSource.next({shipping,total,subTotal})
   }
   deleteBasket(basket: IBasket) {
+    console.log("Method 1 called")
     return this.httpClient.delete(this.baseUrl + 'api/basket?id' + basket.id).subscribe(() => {
       this.basketSource.next(this.initialBasket);
       this.basketTotalSource.next(this.initialBasketTotals);
       localStorage.removeItem('basket_id')
     })
   }
+
   private addOrUpdateItem(items: IBasketItem[], itemToAdd: IBasketItem, quantity: number): IBasketItem[] {
     console.log(items)
     const index = items.findIndex(i => i.id === itemToAdd.id);

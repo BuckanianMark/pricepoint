@@ -19,6 +19,7 @@ export class BasketComponent implements OnInit{
     this.basket$ = this.basketService.basket$;
   }
   removeBasketItem(item:IBasketItem){
+    console.log("Method 3 called")
     this.basketService.removeItemFromBasket(item)
   }
   incrementItemQuantity(item:IBasketItem){

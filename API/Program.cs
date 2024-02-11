@@ -1,7 +1,12 @@
+using API.Extensions;
 using API.Helpers;
 using API.Middleware;
+using Core.Entities;
+using Core.Entities.Identity;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Identity;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -18,11 +23,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StoreContext>(options => {
         options.UseSqlServer(builder.Configuration.GetConnectionString("PricepointMainDb"));
 });
+builder.Services.AddDbContext<AppIdentityDbContext>(x => {
+    x.UseSqlServer(builder.Configuration.GetConnectionString("PricepointIdentityDb"));
+});
+builder.Services.AddIdentityServices(builder.Configuration);
+
+
 builder.Services.AddSingleton<IConnectionMultiplexer>(c => {
     var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"),true);
     return ConnectionMultiplexer.Connect(configuration);
 });
-
+builder.Services.AddScoped<ITokenService , TokenService>();
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -69,6 +80,7 @@ app.UseRouting();
 
 app.UseStaticFiles();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

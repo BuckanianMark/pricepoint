@@ -37,9 +37,6 @@ namespace Infrastructure.Data
             .Include(p => p.ProductType)
             .ToListAsync();
 
-
-           
-
             return products;
       
         }
