@@ -55,19 +55,28 @@ namespace API.Controllers
         {
             
             var user = await _userManager.FindUserByClaimsPrincipleWithAddressAsync(HttpContext.User);
-            return _mapper.Map<Address,AddressDto>(user.MyAddress);
+             if (user == null)
+                {
+                return NotFound("User not found");
+                }
+               if ( user.Address == null)
+                {
+                return NotFound("No address found");
+                }
+            return _mapper.Map<Address,AddressDto>(user.Address);
         }
         [Authorize]
         [HttpPut("address")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
-            var user = await _userManager.FindUserByClaimsPrincipleWithAddressAsync(HttpContext.User);
+            var user = await _userManager.FindUserByClaimsPrincipleWithAddressAsync
+            (HttpContext.User);
 
-            user.MyAddress = _mapper.Map<AddressDto,Address>(address);
+            user.Address = _mapper.Map<AddressDto,Address>(address);
             
             var result = await _userManager.UpdateAsync(user);
 
-            if(result.Succeeded) return Ok(_mapper.Map<Address,AddressDto>(user.MyAddress));
+            if(result.Succeeded) return Ok(_mapper.Map<Address,AddressDto>(user.Address));
 
             return BadRequest("Problem updating the user");
         }
@@ -93,6 +102,10 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            if(EmailExists(registerDto.Email).Result.Value)
+            {
+                return new BadRequestObjectResult(new ApiValidationErrorResponse{Errors = new []{"Email address is in use"}});
+            }
             var user = new AppUser
             {
                 DisplayName = registerDto.DisplayName,

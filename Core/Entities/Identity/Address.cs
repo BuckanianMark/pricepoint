@@ -8,7 +8,7 @@ namespace Core.Entities.Identity
             public string LastName { get; set; }
             public string Town { get; set; }
             public string AppUserId { get; set; }
-            public AppUser? AppUser { get; set; }
+            public AppUser AppUser { get; set; }
         }
    
 }

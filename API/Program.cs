@@ -8,6 +8,7 @@ using Infrastructure.Data;
 using Infrastructure.Identity;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,29 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c => {
+    var securitySchema = new OpenApiSecurityScheme
+    {
+          Description = "JWT Auth Bearer Scheme",
+          Name = "Authorization",
+          In = ParameterLocation.Header,
+          Type = SecuritySchemeType.Http,
+          Scheme = "Bearer",
+          Reference = new OpenApiReference
+          {
+              Type = ReferenceType.SecurityScheme,
+              Id = "Bearer"
+          }
+    };
+    c.AddSecurityDefinition("Bearer", securitySchema);
+    var securityRequirement =  new OpenApiSecurityRequirement
+    {
+    {
+        securitySchema, new [] {"Bearer"}
+    }
+    };
+    c.AddSecurityRequirement(securityRequirement);
+});
 //Adding database configurations
 builder.Services.AddDbContext<StoreContext>(options => {
         options.UseSqlServer(builder.Configuration.GetConnectionString("PricepointMainDb"));
