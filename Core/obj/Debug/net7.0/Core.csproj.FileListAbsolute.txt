@@ -10,3 +10,4 @@ C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\r
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.pdb
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\ref\Core.dll
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.csproj.AssemblyReference.cache
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Core\obj\Debug\net7.0\Core.sourcelink.json

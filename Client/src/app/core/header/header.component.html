@@ -37,18 +37,50 @@
 
 <div class="bigscreen">
     <ul class="flex uppercase font-[500] items-center justify-center text-primary flex-row gap-[15px]">
-        <li><a [routerLink]="['/']" 
+     
+        <li><a 
+            [routerLink]="['/shop']"  
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">Shop</a></li>
+        <li><a 
+            [routerLink]="['/shop/type/audio-products']"
             routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact:true}">Home</a></li>
-        <li><a [routerLink]="['/shop']"  routerLinkActive="active">Shop</a></li>
-        <li><a href="#">Audio</a></li>
-        <li><a >Computing</a></li>
+            >Audio</a></li>
+        <li><a 
+            [routerLink]="['/shop/type/gaming-products']" 
+            routerLinkActive="active" >Gaming</a></li>
+        <li><a
+            [routerLink]="['/shop/type/computing-products']"
+            routerLinkActive="active" 
+             >Computing</a></li>
+         <li><a
+            [routerLink]="['/shop/type/phones&tablets']"
+            routerLinkActive="active" 
+                >Phones</a></li>
         <li><a routerLink="/test-error" routerLinkActive="active" >Errors</a></li>
         <li class=""><a routerLink="/basket">
             <i class="fa fa-shopping-basket bg-sensualMedium p-[5px]  rounded-full text-darkblue"></i>
-            <div *ngIf="(basket$ | async) as basket" class="bg-blue text-sensualLight1 font-semibold absolute top-0 w-[25px] flex items-center justify-center h-[25px] p-2 rounded-full">{{basket.items.length}}</div>
+            <div *ngIf="(basket$ | async) as basket" class="bg-blue text-sensualLight1 font-semibold absolute top-0 w-[25px] flex items-center justify-center h-[25px] p-2 rounded-full">
+                {{basket.items.length}}</div>
             </a>
         </li>
-        <li><button class="login">login</button></li>
+        <ng-container *ngIf="(currentUser$ | async) === null">
+            <li><button class="login" routerLink="/account/login">login</button></li>
+            <li><button class=" sign-up" routerLink="/account/register">Sign Up</button></li>
+        </ng-container>  
+        <ng-container *ngIf="currentUser$ | async">
+            <a  class="text-gray-950 flex relative items-center ">
+                Hello😇 <p class="text-[#f0651a] font-bold">{{(currentUser$ | async)!.displayName}}</p> 
+                <i
+                (click)="handleDropdown()"
+                 class="fa fa-caret-down text-gray-700 cursor-pointer text-xs"  
+                #bigscreencaret></i>
+                <div #bigscreendropdown class="absolute hidden cursor-pointer text-sm flex-col top-[20px] gap-6  bg-sensualMedium py-2 px-4 rounded text-sensualdark2">
+                <span routerLink="/basket" class=" flex items-center gap-2 mb-2"><i class="fa fa-shopping-cart "></i> Basket</span>
+                <span routerLink="/orders" class="flex gap-2 mb-2 items-center"> <i class="fa fa-history text-xs"></i> Orders</span>
+                <span (click)="logout()" class="flex gap-2 items-center"><i class="fa fa-sign-out text-xs" ></i>logout </span>
+            </div>
+        </a>
+        </ng-container> 
     </ul>
 </div>

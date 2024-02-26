@@ -74,9 +74,21 @@ nav{
     padding: 5px 12px;
     font-weight: bold;
 }
+
+
+.sign-up{
+    border: 2px solid #f0651a;
+    padding:5px 12px ;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #f0651a;
+}
 .bigscreen{
     display: none;
 }
+
+
+
 @media screen and (min-width: 770px){
    .header-container{
     display: none;
@@ -87,7 +99,7 @@ nav{
 }
 a.active
 {
-    border-bottom: 3px solid #ebc1b4;
+    border-bottom: 3px solid #14063b;
     padding-bottom:1px;
     color: #14063b;
     font-weight: 700;
