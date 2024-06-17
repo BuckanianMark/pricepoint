@@ -13,10 +13,6 @@ namespace Infrastructure.Data.config
            builder.Property(p => p.Id).IsRequired();
            builder.Property(p => p.ProductName).IsRequired().HasMaxLength(100);
            builder.Property(p => p.Description).IsRequired().HasMaxLength(10000);
-           builder.HasOne(p => p.ProductBrand).WithMany()
-                    .HasForeignKey(p => p.ProductBrandId);
-           builder.HasOne(p => p.ProductType).WithMany()
-                    .HasForeignKey(p => p.ProductTypeId);
          
         }
     }

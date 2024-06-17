@@ -5,15 +5,16 @@ namespace Core.Specifications
 {
     public class ProductsWithTypesBrandsAndSpecsSpecification : BaseSpecification<Product>
     {
+     
+
         public ProductsWithTypesBrandsAndSpecsSpecification(string? sort,int? brandId,int? typeId, bool latest) 
         : base ( x =>
             (!brandId.HasValue || x.ProductBrandId == brandId) &&
             (!typeId.HasValue || x.ProductTypeId == typeId) && 
             (!latest == true)) 
         {
-            AddInclude(x => x.ProductType);
+             AddInclude(x => x.ProductType); 
             AddInclude(x => x.ProductBrand);
-            AddInclude(x => x.ProductSpecs);
             AddOrderBy(x => x.ProductName);
               if(!string.IsNullOrEmpty(sort))
             {
@@ -38,10 +39,8 @@ namespace Core.Specifications
         public ProductsWithTypesBrandsAndSpecsSpecification(int id) 
         : base(x => x.Id == id)
         {
-           
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductBrand);
-            AddInclude(x => x.ProductSpecs);
         }
 
       

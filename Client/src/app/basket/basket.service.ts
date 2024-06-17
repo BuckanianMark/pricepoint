@@ -133,7 +133,7 @@ export class BasketService implements OnInit{
     id:item.id,
     productName:item.productName,
     price:item.price,
-    pictureUrl:item.pictureUrl,
+    pictureUrl:item.productImage,
     quantity,
     brand:item.productBrand,
     type:item.productType

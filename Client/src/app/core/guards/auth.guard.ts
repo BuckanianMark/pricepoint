@@ -12,7 +12,8 @@ export const authGuard = () => {
     {
       return true
     }else{
-      router.navigate(['/login'])
+      const returnUrl = router.routerState.snapshot.url;
+      router.navigate(['account/login'],{queryParams:{returnUrl}})
       return false;
     }
   })

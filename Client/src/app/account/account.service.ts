@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import {map} from 'rxjs/operators'
 import { enviroment } from 'src/enviroment';
 import { IUser } from '../shared/models/user';
@@ -21,7 +21,12 @@ export class AccountService {
   getCurrentUserValue(){
     return this.currentUserSource.value;
   }
+
   loadCurrentUser(token:string){
+    // if(token === null){
+    //   this.currentUserSource.next(null);
+    //   return;
+    // }
     let headers = new HttpHeaders();
     headers = headers.set('Authorization',`Bearer ${token}`)
 

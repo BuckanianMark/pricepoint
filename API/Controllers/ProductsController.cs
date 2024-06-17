@@ -12,24 +12,24 @@ namespace API.Controllers
     public class ProductsController : BaseApiController
     {
         private readonly IMapper _mapper;
+
+      
         private readonly IGenericRepository<Product> _productsRepo;
         private readonly IGenericRepository<ProductBrand> _productBrandRepo;
         private readonly IGenericRepository<ProductType> _productTypeRepo;
-        private readonly IGenericRepository<ProductSpecs> _productSpecsRepo;
 
         public ProductsController(
         IGenericRepository<Product> productsRepo,
         IGenericRepository<ProductBrand> productBrandRepo,
         IGenericRepository<ProductType> productTypeRepo,
-        IGenericRepository<ProductSpecs> productSpecsRepo,
         IMapper mapper
         )
         {
+            
             _mapper = mapper;
             _productsRepo = productsRepo;
             _productBrandRepo = productBrandRepo;
             _productTypeRepo = productTypeRepo;
-            _productSpecsRepo = productSpecsRepo;
 
         }
 
@@ -70,10 +70,6 @@ namespace API.Controllers
         {
             return Ok(await _productTypeRepo.ListAllAsync());
         }
-          [HttpGet("specs")]
-        public async Task<ActionResult<IReadOnlyList<ProductSpecs>>> GetProductSpecs()
-        {
-            return Ok(await _productSpecsRepo.ListAllAsync());
-        }
+      
     }
 }

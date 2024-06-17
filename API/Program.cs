@@ -8,6 +8,7 @@ using Infrastructure.Data;
 using Infrastructure.Identity;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
 
@@ -62,7 +63,21 @@ builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IBasketRepository,BasketRepository>();
 
+
 var app = builder.Build();
+
+var FileProviderPath = app.Environment.WebRootPath + "/Products";
+if(!Directory.Exists(FileProviderPath))
+{
+    Directory.CreateDirectory(FileProviderPath);
+}
+app.UseFileServer(new FileServerOptions
+{
+    FileProvider = new PhysicalFileProvider(FileProviderPath),
+    RequestPath= "/Products",
+    EnableDirectoryBrowsing = true
+});
+
 using (var scope = app.Services.CreateScope()){
     var services = scope.ServiceProvider;
     var loggerFactory = services.GetRequiredService<ILoggerFactory>();

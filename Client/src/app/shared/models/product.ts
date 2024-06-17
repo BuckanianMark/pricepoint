@@ -4,7 +4,7 @@ export interface IProduct{
     productSpecs: string[];
     description: string;
     price: number;
-    pictureUrl: string;
+    productImage: string;
     productType: string;
     productBrand: string;
     latest: boolean;

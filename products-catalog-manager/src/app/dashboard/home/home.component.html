@@ -1,0 +1,8 @@
+<div class="flex flex-col items-center justify-center py-6">
+    <h1 class="text-xl text-gray-800 border-b-2 border-gray-800">Available Products in the catalog</h1>
+    <ul>
+        <li *ngFor="let product of products">
+            <img src="{{product.pictureUrl}}" alt="{{product.productName}}"/>
+        </li>
+    </ul>
+</div>

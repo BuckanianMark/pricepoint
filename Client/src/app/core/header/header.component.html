@@ -57,7 +57,7 @@
             [routerLink]="['/shop/type/phones&tablets']"
             routerLinkActive="active" 
                 >Phones</a></li>
-        <li><a routerLink="/test-error" routerLinkActive="active" >Errors</a></li>
+        <!-- <li><a routerLink="/test-error" routerLinkActive="active" >Errors</a></li> -->
         <li class=""><a routerLink="/basket">
             <i class="fa fa-shopping-basket bg-sensualMedium p-[5px]  rounded-full text-darkblue"></i>
             <div *ngIf="(basket$ | async) as basket" class="bg-blue text-sensualLight1 font-semibold absolute top-0 w-[25px] flex items-center justify-center h-[25px] p-2 rounded-full">
@@ -70,7 +70,7 @@
         </ng-container>  
         <ng-container *ngIf="currentUser$ | async">
             <a  class="text-gray-950 flex relative items-center ">
-                Hello😇 <p class="text-[#f0651a] font-bold">{{(currentUser$ | async)!.displayName}}</p> 
+                Hello😇 <p class="text-sensualdark2 font-bold">{{(currentUser$ | async)!.displayName}}</p> 
                 <i
                 (click)="handleDropdown()"
                  class="fa fa-caret-down text-gray-700 cursor-pointer text-xs"  

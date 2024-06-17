@@ -1,0 +1,119 @@
+<div class="text-center py-6 w-[100%]">
+    <h2 class="mx-auto w-[120px] text-xl font-[600] border-b-2 border-teal-950">
+        {{formTitle}} Product
+    </h2>
+</div>
+<div class="flex items-center justify-center ">
+    <form 
+    class="bg-[whitesmoke]  py-8 px-12 rounded-lg shadow-md shadow-[whitesmoke]"
+    [formGroup]="productForm"
+    (ngSubmit)="onSubmit()">
+    <div class="flex gap-8 items-start justify-center">
+    <div>   
+    <div class="flex flex-col my-1 items-start gap-2">
+        <label class="font-[600] text-gray-800">Product Name</label>
+        <input 
+        formControlName="ProductName"
+        type="text"
+        placeholder="Enter the product name.."
+        class="bg-teal-50 outline-none border-2 border-teal-50 focus:border-teal-200 px-4 py-1 rounded-md">
+        <span
+        class="text-red-500 font-bold text-sm flex gap-2"
+        *ngIf="(productFormControl['ProductName'].touched || submitted) &&
+        (productFormControl['ProductName'].hasError('required'))"
+        ><i class="fa-regular fa-circle-xmark"></i>Product Name is required</span>
+    </div>
+    <div class="flex flex-col my-1 items-start gap-2">
+        <label class="font-[600] text-gray-800">Product Description</label>
+        <input 
+        formControlName="Description"
+        type="text"
+        placeholder="Enter the product Description.."
+        class="bg-teal-50 outline-none border-2 border-teal-50 focus:border-teal-200 px-4 py-1 rounded-md">
+        <span
+        class="text-red-500 font-bold text-sm flex gap-2"
+        *ngIf="(productFormControl['Description'].touched || submitted) &&
+        (productFormControl['Description'].hasError('required'))"
+        ><i class="fa-regular fa-circle-xmark"></i>Description is required</span>
+    </div>
+    <div class="flex flex-col my-1 items-start gap-2">
+        <label class="font-[600] text-gray-800">Product Price</label>
+        <input 
+        formControlName="Price"
+        type="number"
+        placeholder="Enter the product Price.."
+        class="bg-teal-50 outline-none border-2 border-teal-50 focus:border-teal-200 px-4 py-1 rounded-md">
+        <span
+        class="text-red-500 font-bold text-sm flex gap-2"
+        *ngIf="(productFormControl['Price'].touched || submitted) &&
+        (productFormControl['Price'].hasError('required'))"
+        > <i class="fa-regular fa-circle-xmark"></i>Price is required</span>
+    </div>
+    <div class="flex flex-col my-3 items-start gap-2 ">
+       <select 
+       formControlName="ProductType" class="outline-none  bg-teal-100 px-2 rounded">
+        <option value="" disabled selected class="border-teal-100">Select</option>
+        <option 
+        *ngFor="let type of types"
+        [value]="type.name"
+        class="border-teal-100"> {{type.name}} </option>
+       </select>
+       <span
+       class="text-red-500 font-bold text-sm flex gap-2"
+       *ngIf="(productFormControl['ProductType'].touched || submitted) &&
+       (productFormControl['ProductType'].hasError('required'))"
+       > <i class="fa-regular fa-circle-xmark"></i> ProductType is required</span>
+    </div>
+    <div class="flex flex-col my-3 items-start gap-2">
+        <select 
+        formControlName="ProductBrand"
+        name="ProductBrand" 
+        class="outline-none  bg-teal-100 px-2 rounded">
+         <option value="" class="border-teal-100">Select</option>
+         <option 
+         *ngFor="let brand of brands"
+         [value]="brand.name"
+         class="border-teal-100"> {{brand.name}} </option>
+        </select>
+        <span
+        class="text-red-500 font-bold text-sm flex gap-2"
+        *ngIf="(productFormControl['ProductBrand'].touched || submitted) &&
+        (productFormControl['ProductBrand'].hasError('required'))"
+        ><i class="fa-regular fa-circle-xmark"></i>ProductBrand is required</span>
+  
+     </div>
+    </div>
+    <div>
+        <div class="flex flex-col my-1 items-start gap-2">
+            <img src="{{PicturePreview}}" class="border-2 p-2 border-dotted rounded-md my-2 md:max-w-[250px]" alt="Upload an Image">
+            <div class="uploader-container">
+                <input 
+                (change)="uploadProduct($event)"
+                type="file"
+                 id="fileupload">   
+            </div>
+        </div>
+  
+    <div class="flex flex-col my-3 items-start gap-2">
+        <label class="font-[600] text-gray-800">Product Specifications</label>
+        <div class="flex gap-2 items-center">
+          <button type="button" (click)="addSpec()" class="bg-blue-500 px-3 py-1 rounded-md text-white font-bold">Add Specification</button>
+          <span class="text-red-500 font-bold text-sm flex gap-2" *ngIf="submitted && ProductSpecs.invalid">At least one specification is required</span>
+        </div>
+        <div formArrayName="ProductSpecs">
+          <div *ngFor="let specControl of ProductSpecs.controls; let i = index" class="flex gap-2 items-center">
+            <input [formControlName]="i" type="text" placeholder="Enter a specification" class="bg-teal-50 outline-none border-2 border-teal-50 focus:border-teal-200 px-4 py-1 rounded-md">
+            <button type="button" (click)="removeSpec(i)" class="bg-red-500 px-3 py-1 rounded-md text-white font-bold">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+     <div class="mt-4 flex gap-6">
+        <button 
+        type="submit" 
+        class="bg-shiningGreen px-4 py-1 rounded-sm text-white font-bold">save</button>
+        <button class="bg-red-400 py-1 px-4 rounded-sm font-bold text-gray-600">cancel</button>
+    </div>
+</form>
+</div>

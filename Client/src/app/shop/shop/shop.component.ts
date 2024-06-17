@@ -35,6 +35,7 @@ export class ShopComponent implements OnInit{
   ngOnInit(): void {
   this.getProductsForLatest();
   this.getProducts();
+  console.log(this.products)
   this.getBrands();
   this.getTypes();
   }
