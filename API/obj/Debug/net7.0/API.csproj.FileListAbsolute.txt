@@ -90,3 +90,9 @@ C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Api\bin\Debug\net7.0\Mi
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\Api\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\obj\Debug\net7.0\API.sourcelink.json
 C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\obj\Debug\net7.0\API.csproj.Up2Date
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\web.config
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\publish\web.config
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\publish\API.deps.json
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\publish\API.runtimeconfig.json
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Users\Hp\Desktop\WebProjects\AngularCsharp\pricepoint\API\bin\Debug\net7.0\publish\appsettings.json

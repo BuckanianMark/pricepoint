@@ -1,5 +1,6 @@
 using API.Extensions;
 using API.Helpers;
+using API.Interceptor;
 using API.Middleware;
 using Core.Entities;
 using Core.Entities.Identity;
@@ -20,6 +21,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+
 builder.Services.AddSwaggerGen(c => {
     var securitySchema = new OpenApiSecurityScheme
     {
@@ -44,8 +47,16 @@ builder.Services.AddSwaggerGen(c => {
     c.AddSecurityRequirement(securityRequirement);
 });
 //Adding database configurations
+builder.Services.AddSingleton<ConnectionInterceptor>();
 builder.Services.AddDbContext<StoreContext>(options => {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("PricepointMainDb"));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("PricepointMainDb"),
+        sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null)  
+               )
+                .EnableSensitiveDataLogging()
+                .LogTo(Console.WriteLine);
 });
 builder.Services.AddDbContext<AppIdentityDbContext>(x => {
     x.UseSqlServer(builder.Configuration.GetConnectionString("PricepointIdentityDb"));
@@ -99,6 +110,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseMiddleware<ExceptionMiddleware>();
 
@@ -106,12 +119,13 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 app.UseHttpsRedirection();
 
-app.UseCors(options => 
-{
-    options.AllowAnyHeader();
-    options.AllowAnyMethod();
-    options.AllowAnyOrigin();
-});
+// app.UseCors(options => 
+// {
+//     options.WithOrigins("http://localhost:4200")
+//             .AllowAnyHeader()
+//             .AllowAnyMethod();
+
+// });
 
 
 app.UseRouting();

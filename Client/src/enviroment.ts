@@ -1,4 +1,4 @@
 export const enviroment ={
     production:false,
-    apiUrl:"http://localhost:5262/api/"
+    apiUrl:"http://pricepointapi.com/api"
 }

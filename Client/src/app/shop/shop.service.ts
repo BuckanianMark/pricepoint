@@ -11,7 +11,7 @@ import { ShopParams } from '../shared/models/ShopParams';
   providedIn: 'root'
 })
 export class ShopService {
-  baseUrl = 'http://localhost:5262/api/'
+  baseUrl = 'http://pricepointapi.com/api/'
   latestproducts!:IProduct[];
 
   constructor(private http:HttpClient) { }
