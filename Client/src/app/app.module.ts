@@ -16,11 +16,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { Loadinginterceptor } from './core/interceptors/loading.interceptors';
 import { FooterComponent } from './partials/footer/footer.component';
+import { HeaderComponent } from './core/header/header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,FooterComponent
+    AppComponent,FooterComponent,HeaderComponent
   ],
   imports: [
     BrowserModule,

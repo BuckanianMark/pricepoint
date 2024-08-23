@@ -11,7 +11,6 @@ import { IUser } from 'src/app/shared/models/user';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
-  
 })
 
 export class HeaderComponent implements OnInit{
