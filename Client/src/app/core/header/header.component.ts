@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit{
   handleDropdown(){
     // this.caret.nativeElement.addEventListener('click', () => {
     
-      this.dropdown.nativeElement.classList.toggle('hidden')
+      // this.dropdown.nativeElement.classList.toggle('hidden')
     
     // })
   }
