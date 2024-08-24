@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { enviroment } from 'src/enviroment';
 import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
 import {v4 as uuidv4} from 'uuid';
 import { IProduct } from '../shared/models/product';
@@ -12,7 +11,7 @@ import { DeliveryMethod } from '../shared/models/deliveryMethod';
   providedIn: 'root'
 })
 export class BasketService implements OnInit{
-  baseUrl = enviroment.apiUrl;
+   baseUrl = 'http://pricepointapi.com/api/'
   shipping = 0 ;
   initialBasketTotals = {
     shipping:0,

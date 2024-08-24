@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import {map} from 'rxjs/operators'
-import { enviroment } from 'src/enviroment';
 import { IUser } from '../shared/models/user';
 import { Router } from '@angular/router';
 
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = enviroment.apiUrl;
+   baseUrl = 'http://pricepointapi.com/api/'
 
   private currentUserSource = new BehaviorSubject<IUser | null>(null);
   currentUser$ = this.currentUserSource.asObservable(); 
