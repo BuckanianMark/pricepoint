@@ -100,7 +100,7 @@ using (var scope = app.Services.CreateScope()){
     catch (Exception ex)
     {
         var logger = loggerFactory.CreateLogger<Program>();
-        logger.LogError(ex, "An error occured during migratio");
+        logger.LogError(ex, "An error occured during migration");
     }
 }
 
