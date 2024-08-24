@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,13 +19,13 @@ body{
     font-family: 'Rubik';
 }
 
-label.xng-breadcrumb-trail{
+/* label.xng-breadcrumb-trail{
     border-bottom: 2px solid #050505;
     color: #050505;
 }
 .xng-breadcrumb-separator{
     padding: 0 0;
-}
+} */
 /* @media screen and (max-width: 770px)
 {
     #icon-search{

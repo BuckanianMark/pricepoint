@@ -42,19 +42,7 @@ export class AppComponent implements OnInit{
     }
   }
 
-  initAnimations()
-  {
-    // gsap.from(this.container.nativeElement.children, {
-    //   duration:0.5,
-    //   opacity:0,
-    //   y:-20,
-    //   stagger:0.2,
-    //   delay:0.4
-    // })
 
-
-  
-  }
 
 
   
